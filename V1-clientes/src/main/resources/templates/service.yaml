@@ -1,0 +1,19 @@
+apiVersion: #{svc-api-version}#
+kind: Service
+metadata:
+  name: #{service}#-service
+  namespace: #{namespace}#-#{env}#
+  labels:
+    app.bancolombia.com.co/env: "#{env}#"
+    app.bancolombia.com.co/cost-center: "#{cost-center}#"
+    app.bancolombia.com.co/application-code: "#{application-code-ms}#"
+    app.bancolombia.com.co/project: "#{project-name}#"
+    app.bancolombia.com.co/pmo: "#{pmo}#"
+spec:
+  selector:
+    app: #{project-name}#
+    pod: #{service}#-pod
+  ports:
+    - name: http
+      targetPort: #{container-port}#
+      port: #{port-service}#

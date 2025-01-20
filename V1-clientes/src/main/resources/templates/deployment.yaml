@@ -1,0 +1,93 @@
+kind: Deployment
+apiVersion: #{deploy-api-version}#
+metadata:
+  name: #{service}#-deployment
+  namespace: #{namespace}#-#{env}#
+  labels:
+    app.bancolombia.com.co/env: "#{env}#"
+    app.bancolombia.com.co/cost-center: "#{cost-center}#"
+    app.bancolombia.com.co/application-code: "#{application-code-ms}#" #codigo del MS
+    app.bancolombia.com.co/project: "#{project-name}#"
+    app.bancolombia.com.co/pmo: "#{pmo}#"
+spec:
+  replicas: #{replicas}#
+  selector:
+    matchLabels:
+      pod: #{service}#-pod
+  strategy:
+    rollingUpdate:
+      maxSurge: #{maxSurge}#
+      maxUnavailable: #{maxUnavailable}#
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: #{project-name}#
+        pod: #{service}#-pod
+        app.bancolombia.com.co/project: #{project-name}#
+        version: #{version}#
+    spec:
+      containers:
+      - env:
+        - name: CONFIG_MAP
+          valueFrom:
+            configMapKeyRef:
+              key: application.yaml
+              name: #{service}#-configmap
+        image: #{dockerImage}#
+        imagePullPolicy: Always
+        name: #{service}#-container
+        resources:
+          requests:
+            memory: "#{memory-request}#Mi"
+            cpu: "#{cpu-request}#m"
+          limits:
+            memory: "#{memory-limits}#Mi"
+            cpu: "#{cpu-limits}#m" 
+        ports:
+          - containerPort: #{container-port}#
+        terminationMessagePath: /dev/termination-log
+        volumeMounts:
+        - mountPath: /secret/binding/couchdb
+          name: service-bind-volume-couchdb
+        - mountPath: /secret/bindingLogs
+          name: service-bind-volume-logs
+        - mountPath: /secret/binding/rabbitmq
+          name: service-bind-volume-rabbitmq
+        - mountPath: /secret/binding/postgresql/
+          name: service-bind-volume-postgresql
+        - mountPath: /var/itckey
+          name: workdir-senditc
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      securityContext:
+        fsGroup: #{docker-user-id}#
+      serviceAccountName: #{service-account-name}#
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: workdir-senditc
+        emptyDir: {}
+      - name: service-bind-volume-couchdb
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: #{spc-binding-couchdb}#
+      - name: service-bind-volume-rabbitmq
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: #{spc-binding-rabbitmq}#
+      - name: service-bind-volume-logs
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: #{spc-binding-itc}#
+      - name: service-bind-volume-postgresql
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: #{spc-binding-postgresql}#

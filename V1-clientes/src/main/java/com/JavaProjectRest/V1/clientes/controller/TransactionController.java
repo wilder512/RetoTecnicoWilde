@@ -21,10 +21,6 @@ public class TransactionController {
 
     @PostMapping
     public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction) {
-       // Transaction savedTransaction = transactionService.processTransaction(transaction);
-       // return ResponseEntity.ok(savedTransaction);
-       // return new ResponseEntity<>(clienteService.createCliente(cliente), HttpStatus.CREATED);
-
         return new ResponseEntity<>(transactionService.processTransaction(transaction), HttpStatus.CREATED);
     }
 
