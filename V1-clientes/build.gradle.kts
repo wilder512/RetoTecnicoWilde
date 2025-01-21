@@ -19,9 +19,15 @@ configurations {
 
 repositories {
 	mavenCentral()
+
 }
 
 dependencies {
+	implementation ("org.springframework.boot:spring-boot-starter")
+	//implementation ("software.amazon.awssdk:sqs") // Dependencia de AWS SQS
+	 implementation ("com.amazonaws:aws-java-sdk-bom:1.12.529")
+
+	implementation("software.amazon.awssdk:sqs:2.20.31")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	compileOnly("org.projectlombok:lombok")
