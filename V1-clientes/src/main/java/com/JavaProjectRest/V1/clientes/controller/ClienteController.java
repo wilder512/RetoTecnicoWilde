@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -44,6 +45,17 @@ public class ClienteController {
         return new ResponseEntity<>(clienteService.getAllClientes(),HttpStatus.OK);
     }
 
+    @GetMapping("/clientes/{id}/saldo")
+    public ResponseEntity<BigDecimal> obtenerSaldo(@PathVariable Long id) {
+        return ResponseEntity.ok(clienteService.obtenerSaldo(id));
+    }
+
+    @PutMapping("/clientes/{id}/saldo")
+    public ResponseEntity<Void> actualizarSaldo(@PathVariable Long id, @RequestBody BigDecimal nuevoSaldo) {
+        clienteService.actualizarSaldo(id, nuevoSaldo);
+        return ResponseEntity.noContent().build();
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Cliente> updateUser(@PathVariable Long id, @RequestBody Cliente clienteDetails) {
         try {
@@ -54,7 +66,6 @@ public class ClienteController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
     }
-
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {

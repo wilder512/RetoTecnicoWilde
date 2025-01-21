@@ -5,6 +5,7 @@ import com.JavaProjectRest.V1.clientes.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +25,26 @@ public class ClienteService {
         return  clienteRepository.findById(id);
     }
 
+    public BigDecimal obtenerSaldo(Long id) {
+        return clienteRepository.findById(id)
+                .map(Cliente::getSaldo)
+                .orElseThrow(() -> new IllegalArgumentException("Cliente no encontrado con ID: " + id));
+    }
+
+    public void actualizarSaldo(Long id, BigDecimal nuevoSaldo) {
+        Cliente cliente = clienteRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Cliente no encontrado con ID: " + id));
+
+        if (nuevoSaldo.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException("El saldo no puede ser negativo");
+        }
+
+        cliente.setSaldo(nuevoSaldo);
+        clienteRepository.save(cliente);
+
+    }
+
+
     public List<Cliente> getAllClientes()
     {
         return  clienteRepository.findAll();
@@ -36,6 +57,7 @@ public class ClienteService {
         cliente.setPassword(clienteDetails.getPassword());
         return clienteRepository.save(cliente);
     }
+
     public void deleteCliente(Long id) {
         clienteRepository.deleteById(id);
     }

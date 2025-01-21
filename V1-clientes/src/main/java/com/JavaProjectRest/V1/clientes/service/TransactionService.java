@@ -12,21 +12,21 @@ import java.util.List;
 @Service
 public class TransactionService {
 
-    private final SqsClient sqsClient;
+   // private final SqsClient sqsClient;
     private final String queueUrl = "https://sqs.REGION.amazonaws.com/ACCOUNT_ID/QUEUE_NAME"; // Reemplaza con la URL de tu SQS
 
     @Autowired
     private TransactionRepository transactionRepository;
 
 
-    public TransactionService(TransactionRepository transactionRepository, SqsClient sqsClient) {
+   /* public TransactionService(TransactionRepository transactionRepository, SqsClient sqsClient) {
         this.transactionRepository = transactionRepository;
         this.sqsClient = sqsClient;
     }
-
+*/
     public Transaction processTransaction(Transaction transaction) {
         // Save the transaction in the database
-        sendMessageToQueue(transaction);
+        //sendMessageToQueue(transaction);
         return transactionRepository.save(transaction);
     }
 
@@ -39,7 +39,7 @@ public class TransactionService {
         return transactionRepository.findAll();
     }
 
-    private void sendMessageToQueue(Transaction transaction) {
+    /*private void sendMessageToQueue(Transaction transaction) {
         try {
             String messageBody = String.format(
                     "{\"id\":%d,\"accountId\":\"%s\",\"amount\":%.2f,\"type\":\"%s\"}",
@@ -58,5 +58,5 @@ public class TransactionService {
         } catch (Exception e) {
             throw new RuntimeException("Error sending message to SQS: " + e.getMessage(), e);
         }
-    }
+    }*/
 }
