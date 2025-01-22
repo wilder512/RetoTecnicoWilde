@@ -1,7 +1,6 @@
-package com.JavaProjectRest.V1.clientes.beans;
+package com.JavaProjectRest.V1.transactions.beans;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import software.amazon.awssdk.services.sqs.SqsClient;
 
 //@Configuration

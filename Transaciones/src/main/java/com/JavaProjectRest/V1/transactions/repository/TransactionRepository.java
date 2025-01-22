@@ -1,6 +1,6 @@
-package com.JavaProjectRest.V1.clientes.repository;
+package com.JavaProjectRest.V1.transactions.repository;
 
-import com.JavaProjectRest.V1.clientes.model.Transaction;
+import com.JavaProjectRest.V1.transactions.model.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

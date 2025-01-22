@@ -1,4 +1,4 @@
-package com.JavaProjectRest.V1.clientes;
+package com.JavaProjectRest.V1.transactions;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

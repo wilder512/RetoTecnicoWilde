@@ -1,7 +1,7 @@
-package com.JavaProjectRest.V1.clientes.controller;
+package com.JavaProjectRest.V1.transactions.controller;
 
-import com.JavaProjectRest.V1.clientes.model.Transaction;
-import com.JavaProjectRest.V1.clientes.service.TransactionService;
+import com.JavaProjectRest.V1.transactions.model.Transaction;
+import com.JavaProjectRest.V1.transactions.service.TransactionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

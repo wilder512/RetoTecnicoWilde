@@ -1,4 +1,4 @@
-package com.JavaProjectRest.V1.clientes;
+package com.JavaProjectRest.V1.transactions;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

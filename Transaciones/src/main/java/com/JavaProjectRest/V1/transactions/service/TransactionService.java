@@ -1,11 +1,9 @@
-package com.JavaProjectRest.V1.clientes.service;
+package com.JavaProjectRest.V1.transactions.service;
 
-import com.JavaProjectRest.V1.clientes.model.Transaction;
-import com.JavaProjectRest.V1.clientes.repository.TransactionRepository;
+import com.JavaProjectRest.V1.transactions.model.Transaction;
+import com.JavaProjectRest.V1.transactions.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import software.amazon.awssdk.services.sqs.SqsClient;
-import software.amazon.awssdk.services.sqs.model.SendMessageRequest;
 
 import java.util.List;
 
@@ -25,7 +23,7 @@ public class TransactionService {
     }
 */
     public Transaction processTransaction(Transaction transaction) {
-        // Save the transaction in the database
+
         //sendMessageToQueue(transaction);
         return transactionRepository.save(transaction);
     }

@@ -1,4 +1,4 @@
-package com.JavaProjectRest.V1.clientes.model;
+package com.JavaProjectRest.V1.transactions.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
