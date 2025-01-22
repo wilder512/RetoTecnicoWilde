@@ -1,0 +1,135 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: #{service}#-configmap
+  namespace: #{namespace}#-#{env}#
+data:
+  application.yaml: |-
+    ##Bancolombia cloud library
+    kubernetes.cloudant.binding.path: /secret/binding/couchdb/
+    kubernetes.cloudant.binding.file: binding
+    #
+    kubernetes.secret.binding.path: /secret/bindingLogs/
+    secret.name: binding
+
+    rds.secret.path: /secret/binding/postgresql/
+    rds.secret.file: binding
+
+    #rabbit
+    attr.rabbitmq.enable: #{rabbit-enable}#
+    attr.sns.enable: #{sns-enable}#
+    attr.sqs.enable: #{sqs-enable}#
+    amqp.save.functional.log: false
+    attr.rabbitmq.exchange: itc.edpime.bim.direct
+    attr.routing.key: prueba_bim_itc_1
+    attr.routing.keytl: walletRoute
+    attr.rabbitmq.exchangetl: wallet.direct
+    attr.rabbitmq.queue: all
+    #
+    springfox.documentation.swagger.v2.path: /api-docs
+    server.servlet.context-path: /v1/sendItcLog
+    server.port: 8080
+    contentType: application/json
+    file.name: ITCFFTRBIM
+    file.date.length: 8
+    file.name.txt.extension: .txt
+    attr.regex.number: "[0-9]*"
+    date.format: ddMMyyyy
+    attr.format.date.time.stamp: dd/MM/yyyy HH:mm:ss.SSSS
+    attr.format.date.simple: ddMMyyyy
+    attr.format.date.simple.fileFormat: yyyyMMdd
+    attr.format.time: HHmmss
+    attr.path.itc.config: src/main/resources/ITCFFTRBIM
+    attr.path.itc.path.file: src/main/resources/
+    attr.path.itc.source.file: file://src/main/resources/?fileName=ITCFFTRBIM
+    attr.send.itc.log.build.log.exception.message: Error al crear archivo log
+    attr.endpoint.content.http.method: POST
+    attr.estructura.channel: APP
+    attr.estructura.consumer: BIM
+    attr.estructura.servicio: ITC Billetera
+    attr.estructura.codtrn: BIM02
+    attr.path.bydate: /v1/sendItcLog/sendLog
+    attr.yaml.message: loading yaml dev
+    attr.error.tittle: Tittle
+    attr.error.fiel: Error
+    attr.error.description: descError
+    attr.error.detail: detail
+    attr.error.message: No existen registros en la base de datos
+    attr.error.id: id
+    attr.type: type
+    attr.logByDate: logByDate
+    attr.status.fiel: status
+    attr.list.log: listLog
+    attr.source: source
+    attr.successfull.id: Id
+    attr.successfull.created: Created
+    attr.message.property.messagelog: MensajeLog
+    attr.exception.property: Exception
+    attr.group.id.label: BIMDI01
+    attr.process.id.label: "_id"
+    attr.message.pending: En Proceso
+    attr.message.reprocess: reprocess
+    attr.message.error: Error
+    attr.message.reprocessdate: reprocessDate
+    attr.message.completed: Completado
+    attr.message.send.process: Procesando archivo log
+    attr.message.send.ok: Archivo log enviado
+    attr.status.sterling: statussterling
+    attr.status.postgres: statuspostgres
+    attr.status.ok: ok
+    attr.status.fail: fail
+    attr.message.cloudant.error: Error en actualizacion o registro en cm-process
+    attr.message.cloudant.update: Actualizando registro en cm-process
+    attr.message.cloudant.create: Realizando registro en cm-proces
+    attr.message.cloudant.create.update: Registro o actualizacion correcta en cm-process
+    attr.message.cloudant.not.found: Documento no encontrado
+    attr.message.cloudant.search.error: Error al realizar la consulta en cloudant
+    attr.message.cloudant.search: Buscando registro en cm-process
+    attr.message.postgresql.build.file: Construyendo archivo log
+    attr.message.postgresql.build.file.ok: Archivo log construido correctamente
+    attr.message.postgresql.build.file.error: Se presento un error al construir el archivo log
+    attr.message.postgresql.search: Consulta en postgreSQL realizada correctamente
+    attr.message.postgresql.error.empty.registry: Error al crear archivo log, no se encontraron registros para la fecha indicada
+    attr.message.send.sterling.progress: Enviando archivo a sterling
+    attr.message.send.sterling.ok: Envio a sterling correcto
+    attr.message.send.sterling.bad: No se realizo el envio a sterling
+    template.freemarker.send.itc.log.date.error: freemarker:templates/sendItcLogTemplateError.ftl
+    template.freemarker.send.itc.log.date.success: freemarker:templates/sendItcLogTemplate.ftl
+    db.cmprocess: cm-process
+    attr.cloudant.cmprocess.index: CMProccesIndex/CMProccesIndex
+    attr.cloudant.cmprocess.field.idprocess: "_id:BIMDI01"
+    spring.h2.console.enabled: true
+    spring.datasource.platform: postgresql
+    spring.datasource-auth: #{datasource-auth}#
+    spring.datasource.driver_class_name: #{datasource-driver}#
+    spring.datasource.max-active: 6
+    spring.datasource.testWhileIdle: true
+    spring.datasource.validationQuery: SELECT 1
+    spring.jpa.show-sql: false
+    spring.jpa.hibernate.ddl-auto: update
+    spring.jpa.hibernate.naming.implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl
+    spring.jpa.hibernate.naming.physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+    attr.endpoint_protocolo: sftp
+    attr.endpoint_servidor: #{sterling-server}#
+    attr.endpoint_port: #{sterling-port}#
+    attr.endpoint_ruta: #{sterling-rute}#
+    server.undertow.worker-threads: 5
+    server.undertow.io-threads: 1
+    sns.topic: #{sns-topic}#
+    attr.rabbitmq.min_concurrent.consumer: 1
+    attr.rabbitmq.max_concurrent.consumer: 1
+    endpoint.s3.cloud.object.storege: https://s3.us-south.cloud-object-storage.appdomain.cloud
+    cloud.objectStorage.dirNewFile: /var/itckey/
+    cloud.objectStorage.podrute: src/main/resources/ITCKEY/
+    cloud.objectStorage.bucketName: #{bucketName}#
+    attr.url.service.control.process.malla: #{URL_SERVICE_CONTROL_MALLA}#
+    attr.sterling.user: #{sterling-user}#
+    attr.sterling.privateKeyFile: "./src/main/resources/ITCKEY/#{privateKey}#"
+    attr.sterling.privateKeyPassphrase: billeteramovil
+    attr.validKeyConnection: no
+    my-app.http.auth-token-header-name: Authorization
+    my-app.http.auth-token: #{token-for-health}#
+    management.endpoints.web.exposure.include: health
+    management.endpoint.health.show-details: always
+    management.health.rabbit.enabled:  #{rabbit-enable}#
