@@ -4,35 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e763d64f-bcb8-4724-9d66-4e6bb6e8e4c1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaProjectRest/V1/clientes/Application.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaProjectRest/V1/clientes/beans/AwsConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaProjectRest/V1/clientes/controller/ClienteController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaProjectRest/V1/clientes/controller/TransactionController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaProjectRest/V1/clientes/model/Cliente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaProjectRest/V1/clientes/model/Transaction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaProjectRest/V1/clientes/repository/ClienteRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaProjectRest/V1/clientes/repository/TransactionRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaProjectRest/V1/clientes/service/ClienteService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/JavaProjectRest/V1/clientes/service/TransactionService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/configmap.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/deployment.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/gateway.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/secretProviderclass.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/service.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/JavaProjectRest/V1/clientes/ApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/virtualService.yaml" beforeDir="false" />
-    </list>
+    <list default="true" id="e763d64f-bcb8-4724-9d66-4e6bb6e8e4c1" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,16 +51,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.V1-clientes [:Application.main()].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;tunk&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/wilderramirez/Documents/RetoTecnico/RetoTecnicoWilde/V1-clientes&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Application.executor": "Run",
+    "Gradle.Build V1-clientes.executor": "Run",
+    "Gradle.V1-clientes [:Application.main()].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feaure/monorepo",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/wilderramirez/Documents/RetoTecnico/RetoTecnicoWilde/V1-clientes",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
