@@ -17,7 +17,20 @@ public class Cliente {
     private String name;
     private String email;
     private String password;
-    private BigDecimal saldo;
+    private String accountType;
+    private BigDecimal balance;
+
+    // Constructor sin argumentos (necesario para JPA)
+    public Cliente() {}
+
+    public Cliente(Long id, String name, String email, String password, String accountType, BigDecimal balance) {
+
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.accountType = accountType;
+        this.balance = balance;
+    }
 
     public Long getId() {
         return id;
@@ -25,6 +38,14 @@ public class Cliente {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
+    public String getAccountType() {
+        return accountType;
     }
 
     public String getName() {
@@ -52,11 +73,11 @@ public class Cliente {
     }
 
 
-    public BigDecimal getSaldo() {
-        return saldo;
+    public BigDecimal getBalance() {
+        return balance;
     }
 
-    public void setSaldo(BigDecimal saldo) {
-        this.saldo = saldo;
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
     }
 }

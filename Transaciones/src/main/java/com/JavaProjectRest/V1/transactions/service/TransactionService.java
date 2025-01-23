@@ -1,10 +1,13 @@
 package com.JavaProjectRest.V1.transactions.service;
 
+import com.JavaProjectRest.V1.transactions.adapter.ClienteClient;
+import com.JavaProjectRest.V1.transactions.exception.SaldoInsuficienteException;
 import com.JavaProjectRest.V1.transactions.model.Transaction;
 import com.JavaProjectRest.V1.transactions.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -15,6 +18,8 @@ public class TransactionService {
 
     @Autowired
     private TransactionRepository transactionRepository;
+    @Autowired
+    private ClienteClient clienteClient;
 
 
    /* public TransactionService(TransactionRepository transactionRepository, SqsClient sqsClient) {
@@ -22,6 +27,16 @@ public class TransactionService {
         this.sqsClient = sqsClient;
     }
 */
+
+    public void validationAndCreateTransaction(Transaction transaction) {
+        BigDecimal saldoActual = clienteClient.obtenerSaldo(transaction.getClientId());
+        if (saldoActual.compareTo(transaction.getAmount()) < 0) {
+            throw new SaldoInsuficienteException("Saldo insuficiente");
+        }
+        // Registrar la transacción
+        clienteClient.actualizarSaldo(transaction.getClientId(), saldoActual.subtract(transaction.getAmount()));
+    }
+
     public Transaction processTransaction(Transaction transaction) {
 
         //sendMessageToQueue(transaction);

@@ -21,6 +21,7 @@ public class TransactionController {
 
     @PostMapping
     public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction) {
+        transactionService.validationAndCreateTransaction(transaction);
         return new ResponseEntity<>(transactionService.processTransaction(transaction), HttpStatus.CREATED);
     }
 

@@ -50,7 +50,7 @@ public class ClienteController {
         return ResponseEntity.ok(clienteService.obtenerSaldo(id));
     }
 
-    @PutMapping("/clientes/{id}/saldo")
+    @PutMapping("/{id}/saldo")
     public ResponseEntity<Void> actualizarSaldo(@PathVariable Long id, @RequestBody BigDecimal nuevoSaldo) {
         clienteService.actualizarSaldo(id, nuevoSaldo);
         return ResponseEntity.noContent().build();

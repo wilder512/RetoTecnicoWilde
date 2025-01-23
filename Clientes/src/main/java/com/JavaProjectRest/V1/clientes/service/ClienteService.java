@@ -27,7 +27,7 @@ public class ClienteService {
 
     public BigDecimal obtenerSaldo(Long id) {
         return clienteRepository.findById(id)
-                .map(Cliente::getSaldo)
+                .map(Cliente::getBalance)
                 .orElseThrow(() -> new IllegalArgumentException("Cliente no encontrado con ID: " + id));
     }
 
@@ -39,7 +39,7 @@ public class ClienteService {
             throw new IllegalArgumentException("El saldo no puede ser negativo");
         }
 
-        cliente.setSaldo(nuevoSaldo);
+        cliente.setBalance(nuevoSaldo);
         clienteRepository.save(cliente);
 
     }

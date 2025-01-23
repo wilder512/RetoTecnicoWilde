@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.math.BigDecimal;
+
 
 @Entity
 public class Transaction {
@@ -12,10 +14,11 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private Long clientId;
     private String accountId;
-    private Double amount;
+    private BigDecimal amount;
     private String type; // e.g., "DEPOSIT" or "WITHDRAWAL"
+
 
     // Getters and setters
     public Long getId() {
@@ -26,6 +29,14 @@ public class Transaction {
         this.id = id;
     }
 
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
+    }
+
+    public Long getClientId() {
+        return clientId;
+    }
+
     public String getAccountId() {
         return accountId;
     }
@@ -34,11 +45,11 @@ public class Transaction {
         this.accountId = accountId;
     }
 
-    public Double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(Double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
