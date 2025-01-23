@@ -1,0 +1,29 @@
+apiVersion: #{vs-api-version}#
+kind: VirtualService
+metadata:
+  name: #{service}#-virtual-service
+  namespace: #{namespace}#-#{env}#
+  labels:
+    app.bancolombia.com.co/env: "#{env}#"
+    app.bancolombia.com.co/cost-center: "#{cost-center}#"
+    app.bancolombia.com.co/application-code: "#{application-code-ms}#"
+    app.bancolombia.com.co/project: "#{project-name}#"
+    app.bancolombia.com.co/pmo: "#{pmo}#"
+spec:
+  hosts:
+    - "#{gateway-host-int}#"
+    - "#{gateway-host-mp-vpn}#"
+  gateways:
+    - #{app-gateway-int}#
+  http:
+    - match:
+        - uri:
+            prefix: "/#{namespace}#/#{prefix-path}#"
+      rewrite:
+        uri: "/#{service-path}#"
+      route:
+        - destination:
+            host: #{service}#-service
+            port:
+              number: #{port-service}#
+              

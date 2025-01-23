@@ -1,0 +1,22 @@
+apiVersion: #{gtw-api-version}#
+kind: Gateway
+metadata:
+  name: #{app-gateway-int}#
+  namespace: #{namespace}#-#{env}#
+  labels:
+    app.bancolombia.com.co/env: "#{env}#"
+    app.bancolombia.com.co/cost-center: "#{cost-center}#"
+    app.bancolombia.com.co/application-code: "#{application-code-ms}#"
+    app.bancolombia.com.co/project: "#{project-name}#"
+    app.bancolombia.com.co/pmo: "#{pmo}#"
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "#{gateway-host-int}#"
+        - "#{gateway-host-mp-vpn}#"
