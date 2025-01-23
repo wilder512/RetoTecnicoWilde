@@ -5,10 +5,10 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copia el archivo JAR de la aplicación al contenedor
-COPY build/libs/V1-clientes-0.0.1-SNAPSHOT.jar app.jar
+COPY build/libs/*.jar app.jar
 
 # Exponer el puerto en el que la aplicación se ejecutará
-EXPOSE 8080
+EXPOSE 8081
 
-# Comando para ejecutar la aplicación
+# Comando para ejecutar la aplicación.
 ENTRYPOINT ["java", "-jar", "app.jar"]

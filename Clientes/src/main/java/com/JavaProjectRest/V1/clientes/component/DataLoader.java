@@ -20,9 +20,9 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
         // Crear lista de clientes
         List<Cliente> clientes = List.of(
-                new Cliente(null, "Alice", "alice@example.com", "password1", "standard", new BigDecimal("1000.00")),
-                new Cliente(null, "Bob", "bob@example.com", "password2", "premium", new BigDecimal("2000.00")),
-                new Cliente(null, "Charlie", "charlie@example.com", "password3", "standard", new BigDecimal("1500.00")),
+                new Cliente(null, "Alice", "alice@example.com", "password1", "standard", new BigDecimal("100000000.00")),
+                new Cliente(null, "Bob", "bob@example.com", "password2", "premium", new BigDecimal("200000000.00")),
+                new Cliente(null, "Charlie", "charlie@example.com", "password3", "standard", new BigDecimal("150000000.00")),
                 new Cliente(null, "Diana", "diana@example.com", "password4", "standard", new BigDecimal("500.00")),
                 new Cliente(null, "Eve", "eve@example.com", "password5", "premium", new BigDecimal("3000.00")),
                 new Cliente(null, "Frank", "frank@example.com", "password6", "standard", new BigDecimal("2500.00")),

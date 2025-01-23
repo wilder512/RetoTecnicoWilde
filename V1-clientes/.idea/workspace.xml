@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e763d64f-bcb8-4724-9d66-4e6bb6e8e4c1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Clientes/src/main/java/com/JavaProjectRest/V1/clientes/component/DataLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Transaciones/src/main/java/com/JavaProjectRest/V1/transactions/adapter/ClienteClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Transaciones/src/main/java/com/JavaProjectRest/V1/transactions/beans/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Transaciones/src/main/java/com/JavaProjectRest/V1/transactions/dto/ClienteResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Transaciones/src/main/java/com/JavaProjectRest/V1/transactions/exception/SaldoInsuficienteException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Clientes/src/main/java/com/JavaProjectRest/V1/clientes/controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Clientes/src/main/java/com/JavaProjectRest/V1/clientes/controller/ClienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Clientes/src/main/java/com/JavaProjectRest/V1/clientes/model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Clientes/src/main/java/com/JavaProjectRest/V1/clientes/model/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Clientes/src/main/java/com/JavaProjectRest/V1/clientes/service/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Clientes/src/main/java/com/JavaProjectRest/V1/clientes/service/ClienteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Transaciones/src/main/java/com/JavaProjectRest/V1/transactions/controller/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Transaciones/src/main/java/com/JavaProjectRest/V1/transactions/controller/TransactionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Transaciones/src/main/java/com/JavaProjectRest/V1/transactions/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Transaciones/src/main/java/com/JavaProjectRest/V1/transactions/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Transaciones/src/main/java/com/JavaProjectRest/V1/transactions/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Transaciones/src/main/java/com/JavaProjectRest/V1/transactions/model/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Transaciones/src/main/java/com/JavaProjectRest/V1/transactions/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Transaciones/src/main/java/com/JavaProjectRest/V1/transactions/service/TransactionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Clientes/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../Clientes/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Clientes/src/main/java/com/JavaProjectRest/V1/clientes/component/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Clientes/src/main/java/com/JavaProjectRest/V1/clientes/component/DataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Clientes/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Clientes/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Clientes/src/main/resources/templates/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../Clientes/src/main/resources/templates/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Transaciones/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../Transaciones/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Transaciones/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Transaciones/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Transaciones/src/main/resources/templates/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../Transaciones/src/main/resources/templates/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
