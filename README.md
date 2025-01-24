@@ -1,12 +1,12 @@
 # RetoTecnicoWilder
 
 ![image](https://github.com/user-attachments/assets/b302862c-b631-4f68-ae9b-91021c160269)
-descripcion: en esta arqruitectura vemos un modelo que permite realizar la autorizaciones de compra que se utiliza hoy con la plataforma authentic, la cual genera las autorizaciones de compra que se hacen por las diferentes redes y retiros en cajero, lo que permite el mapeo de esta informacion en linea con el producto debito, y su integracion con el cor de cuarta generacion para la aplicacion de estas trasacciones en sus respectivas cuentas (deprositos)
+descripcion: en esta arqruitectura vemos un modelo que permite realizar la autorizaciones de compra que se utiliza hoy con la plataforma authentic, la cual genera las autorizaciones de compra que se hacen por las diferentes redes y retiros en cajero, lo que permite el mapeo de esta informacion en linea con el producto debito, y su integracion con el core de cuarta generacion para la aplicacion de estas trasacciones en sus respectivas cuentas (depositos)
 
 Microservicios: Clientes y Transacciones
 Este proyecto consta de dos microservicios:
 
-Servicio de Clientes (consumo con el cor de cuarta generacion): Funciona como una "cartera", almacenando la información de los clientes y sus saldos.
+Servicio de Clientes (consumo con el core de cuarta generacion): Funciona como una "cartera", almacenando la información de los clientes y sus saldos.
 Servicio de Transacciones: Permite registrar transacciones y actualizar los saldos de los clientes consumiendo el servicio de Clientes.
 
 Ambos servicios están contenidos con Docker para facilitar su implementación y ejecución.
