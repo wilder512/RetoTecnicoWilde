@@ -22,6 +22,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: 17
+          distribution: temurin
 
       # 3. Build the project
       - name: Build with Maven
@@ -29,7 +30,7 @@ jobs:
 
       # 4. Run tests
       - name: Run Unit Tests
-        run: mvn test
+        run: ./gradlew test
 
       # 5. Log in to Docker Hub
       - name: Log in to Docker Hub
