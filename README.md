@@ -1,5 +1,6 @@
 # RetoTecnicoWilder
 
+![image](https://github.com/user-attachments/assets/b302862c-b631-4f68-ae9b-91021c160269)
 
 Microservicios: Clientes y Transacciones
 Este proyecto consta de dos microservicios:
