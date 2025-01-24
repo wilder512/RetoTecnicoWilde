@@ -78,9 +78,8 @@ Crear transacción:
 Implementación de CI -> .github/main.yml
 El pipeline de integración continua está configurado en GitHub Actions para automatizar la construcción, prueba y implementación de los servicios.
 
-Flujo del oleoducto
-Eventos Desparadores:
-
+Flujo del pipelan:
+triggers:
 pushy pull_requesta la rama tunkque afecta a los directorios Clientes/**o Transaciones/**.
 Pasos principales:
 
