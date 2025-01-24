@@ -2,48 +2,59 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - tunk
+      - main
     paths:
       - 'Clientes/**'
       - 'Transaciones/**'
+      - '**/**'
+
   pull_request:
+    branches:
+      - main
     paths:
       - 'Clientes/**'
       - 'Transaciones/**'
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        service: [Clientes, Transaciones]
+        service:
+          - Clientes
+          - Transaciones
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+
     - name: Set up JDK
       uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
         java-version: 17
-        
-    - name: Navigate to Service Directory
-      run: cd ${{ matrix.service }}
-    - name: Ensure Gradlew is Executable
-      run: chmod +x ./gradlew
-    - name: Build Service with Gradle
-      working-directory: ${{ matrix.service }}
-      run: ./gradlew clean build
-    - name: Run Tests for Service
-      working-directory: ${{ matrix.service }}
-      run: ./gradlew test
-    - name: Build Docker Image
-      working-directory: ${{ matrix.service }}
-      run: |
-        docker build -t wilder512/${{ matrix.service }}:latest .
 
-    - name: Push Docker Image
+    - name: Ensure Gradlew is Executable
+      run: chmod +x ${{ matrix.service }}/gradlew
+
+    - name: Build Service with Gradle
+      run: ${{ matrix.service }}/gradlew clean build
+
+    - name: Run Unit Tests
+      run: ${{ matrix.service }}/gradlew test
+
+    - name: Build Docker Image
+      run: |
+        docker build -t $DOCKER_USERNAME/${{ matrix.service }}:latest ${{ matrix.service }}
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Push Docker Image to Docker Hub
       run: |
-        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-        docker push wilder512/${{ matrix.service }}:latest
+        echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+        docker push $DOCKER_USERNAME/${{ matrix.service }}:latest
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
