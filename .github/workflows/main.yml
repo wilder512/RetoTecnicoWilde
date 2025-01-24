@@ -60,7 +60,8 @@ jobs:
 
     - name: Push Docker Image to Docker Hub
       run: |
-        docker push $DOCKER_USERNAME/${lowercase_service}:latest ${{ matrix.service }}
+        lowercase_service=$(echo "${{ matrix.service }}" | tr '[:upper:]' '[:lower:]')
+        docker push $DOCKER_USERNAME/${lowercase_service}:latest
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
