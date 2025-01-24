@@ -100,3 +100,24 @@ dockerhub-wilder512/clientes:latest.
 <img width="1071" alt="image" src="https://github.com/user-attachments/assets/9afe338c-3204-4744-9cd4-5bc04c045c57" />
 
 
+
+Despliegue en aws. 
+
+se crea balanceador de carga:
+
+![image.png](attachment:e028785d-ebb5-4b2c-92a7-4b06aed1a9a4:image.png)
+
+se crea cluster ecs
+
+![image.png](attachment:5a833c84-b272-41d3-a491-b85f0881f24b:image.png)
+
+se crea lista de tareas:
+
+![image.png](attachment:6d35d959-a04e-47e3-b373-ced87a9044a0:image.png)
+
+url de balanceador:  [ALB-retoTecnico-952606943.us-east-1.elb.amazonaws.com](http://alb-retotecnico-952606943.us-east-1.elb.amazonaws.com/)
+
+en la carpeta  deployAws, estan todos los stacks de cloudformation necesarios para el despliegue.
+
+coleccion de postman para realizar las pruebas.
+[RetoTecnico.postman_collection.json](https://github.com/user-attachments/files/18542276/RetoTecnico.postman_collection.json)
