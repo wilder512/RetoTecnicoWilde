@@ -93,7 +93,9 @@ Imágenes de Docker:
 <img width="1210" alt="image" src="https://github.com/user-attachments/assets/04c6296f-a8fc-42e1-a008-5847d5264b96" />
 
 Las imágenes se publican con el formato:
+
 dockerhub-wilder512/transacciones:latest.
+
 dockerhub-wilder512/clientes:latest.
 <img width="1071" alt="image" src="https://github.com/user-attachments/assets/9afe338c-3204-4744-9cd4-5bc04c045c57" />
 
