@@ -22,8 +22,8 @@ jobs:
     strategy:
       matrix:
         service:
-          - Clientes
-          - Transaciones
+          - clientes
+          - transaciones
 
     steps:
     - name: Checkout repository
