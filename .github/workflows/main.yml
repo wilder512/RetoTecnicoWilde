@@ -22,8 +22,8 @@ jobs:
     strategy:
       matrix:
         service:
-          - clientes
-          - transaciones
+          - Clientes
+          - Transaciones
 
     steps:
     - name: Checkout repository
@@ -46,7 +46,7 @@ jobs:
 
     - name: Build Docker Image
       run: |
-        docker build -t $DOCKER_USERNAME/${{ matrix.service }}:latest ${{ matrix.service }}
+        docker build -t $DOCKER_USERNAME/${{ matrix.service,, }}:latest ${{ matrix.service }}
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
