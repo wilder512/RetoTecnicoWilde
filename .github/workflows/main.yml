@@ -39,10 +39,10 @@ jobs:
       run: chmod +x ${{ matrix.service }}/gradlew
 
     - name: Build Service with Gradle
-      run: ${{ matrix.service }}/gradlew clean build
+      run: ${{ matrix.service }}/gradlew clean build -p ${{ matrix.service }}
 
     - name: Run Unit Tests
-      run: ${{ matrix.service }}/gradlew test
+      run: ${{ matrix.service }}/gradlew test -p ${{ matrix.service }}
 
     - name: Build Docker Image
       run: |
