@@ -10,5 +10,5 @@ COPY build/libs/*.jar app.jar
 # Exponer el puerto en el que la aplicación se ejecutará
 EXPOSE 8081
 
-# Comando para ejecutar la aplicación
+# Comando para ejecutar la aplicación.
 ENTRYPOINT ["java", "-jar", "app.jar"]
