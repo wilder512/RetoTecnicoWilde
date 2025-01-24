@@ -74,4 +74,24 @@ Crear transacción:
           "type": "purchase"
         }
 
-ambiente aws. 
+Implementación de CI -> .github/main.yml
+El pipeline de integración continua está configurado en GitHub Actions para automatizar la construcción, prueba y implementación de los servicios.
+
+Flujo del oleoducto
+Eventos Desparadores:
+
+pushy pull_requesta la rama tunkque afecta a los directorios Clientes/**o Transaciones/**.
+Pasos principales:
+
+Verificación del código fuente.
+Configuración de JDK 17 (Temurin).
+Construcción y pruebas unitarias de cada servicio ( Clientes, Transaciones) usando Gradle.
+Construcción de imágenes Docker para cada servicio.
+Publicación de las imágenes en Docker Hub.
+Imágenes de Docker:
+
+Las imágenes se publican con el formato:
+dockerhub-wilder512/transacciones:latest.
+dockerhub-wilder512/clientes:latest.
+![Uploading image.png…]()
+
